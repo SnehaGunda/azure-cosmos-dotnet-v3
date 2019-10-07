@@ -9,12 +9,13 @@ namespace Microsoft.Azure.Cosmos
     /// </summary>
     internal class UserAgentContainer : Documents.UserAgentContainer
     {
+        private const string Delimiter = " ";
         private static readonly string cosmosBaseUserAgent;
 
         static UserAgentContainer()
         {
             EnvironmentInformation environmentInformation = new EnvironmentInformation();
-            UserAgentContainer.cosmosBaseUserAgent = environmentInformation.ToString();
+            UserAgentContainer.cosmosBaseUserAgent = environmentInformation.ToString() + Delimiter;
         }
 
         public UserAgentContainer()

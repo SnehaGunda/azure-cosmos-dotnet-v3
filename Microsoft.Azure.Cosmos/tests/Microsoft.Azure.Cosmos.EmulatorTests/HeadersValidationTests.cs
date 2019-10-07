@@ -453,9 +453,11 @@ namespace Microsoft.Azure.Cosmos.SDK.EmulatorTests
         [TestMethod]
         public void ValidateCustomUserAgentContainer()
         {
-            const string suffix = " MyCustomUserAgent/1.0";
+            const string suffix = "MyCustomUserAgent/1.0";
             UserAgentContainer userAgentContainer = new Cosmos.UserAgentContainer();
             userAgentContainer.Suffix = suffix;
+
+            //Verify the base class behavior didn't change.
             string expectedUserAgent = new Cosmos.UserAgentContainer().BaseUserAgent + suffix;
             Assert.AreEqual(expectedUserAgent, userAgentContainer.UserAgent);
 
